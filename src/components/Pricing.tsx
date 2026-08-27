@@ -16,12 +16,16 @@ export default function Pricing() {
           {pricingCategories.map((category) => (
             <div key={category.name} className="card-soft overflow-hidden">
               <h3 className="bg-powder-100 px-6 py-4 font-serif text-xl text-stone-700">{category.name}</h3>
-              <table className="w-full">
+              <table className="w-full table-fixed">
+                <colgroup>
+                  <col />
+                  <col className="w-24 sm:w-28" />
+                </colgroup>
                 <tbody>
                   {category.items.map((item, i) => (
                     <tr key={item.name} className={`border-t border-powder-100 transition-colors hover:bg-powder-50 ${i % 2 === 0 ? 'bg-white/40' : ''}`}>
-                      <td className="px-6 py-4 font-serif text-stone-800">{item.name}</td>
-                      <td className="px-6 py-4 text-right text-rosegold-600 font-medium">{item.price}</td>
+                      <td className="px-4 sm:px-6 py-4 align-top font-serif text-stone-800 break-words">{item.name}</td>
+                      <td className="w-24 sm:w-28 px-3 sm:px-6 py-4 align-top text-right text-rosegold-600 font-medium whitespace-nowrap">{item.price}</td>
                     </tr>
                   ))}
                 </tbody>

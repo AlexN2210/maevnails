@@ -8,12 +8,6 @@ const documents = [
     description: 'Autorisation parentale obligatoire pour toute prestation sur une personne mineure.',
     icon: FileText,
   },
-  {
-    id: 'consent-prestations',
-    title: 'Consentement prestations spécifiques',
-    description: 'Formulaire de consentement éclairé pour les prestations de gel et nail art.',
-    icon: FileText,
-  },
 ];
 
 export default function Forms() {
@@ -37,20 +31,6 @@ export default function Forms() {
 
   const updateField = (field: string, value: string | boolean) => {
     setFormData((current) => ({ ...current, [field]: value }));
-  };
-
-  const handleDownload = (id: string) => {
-    // Placeholder: generates a simple text file as a stand-in PDF
-    const doc = documents.find((d) => d.id === id);
-    if (!doc) return;
-    const content = `${doc.title}\n\n${doc.description}\n\nFormulaire de consentement — Maev'nails\n\nNom: ____________________\nDate: ____________________\nSignature: ____________________`;
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${id}.txt`;
-    a.click();
-    URL.revokeObjectURL(url);
   };
 
   const downloadBlankConsent = () => {
@@ -100,6 +80,14 @@ Merci pour votre confiance.
   const handleConsentSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFormSubmitted(true);
+  };
+
+  const openOnlineForm = () => {
+    setFormSubmitted(false);
+    setOnlineFormOpen(true);
+    requestAnimationFrame(() => {
+      document.getElementById('autorisation-parentale')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   };
 
   const downloadCompletedConsent = () => {
@@ -168,26 +156,20 @@ Signature du représentant légal : ${formData.signature}
                   <p className="text-sm text-stone-500 font-light leading-relaxed">{doc.description}</p>
                 </div>
               </div>
-              {doc.id === 'consent-mineur' ? (
-                <div className="mt-auto flex flex-wrap gap-3">
-                  <button onClick={() => setOnlineFormOpen(!onlineFormOpen)} className="btn-outline text-sm">
-                    <PenLine size={16} /> Remplir en ligne
-                  </button>
-                  <button onClick={downloadBlankConsent} className="btn-outline text-sm">
-                    <Download size={16} /> Télécharger
-                  </button>
-                </div>
-              ) : (
-                <button onClick={() => handleDownload(doc.id)} className="btn-outline mt-auto self-start text-sm">
+              <div className="mt-auto flex flex-wrap gap-3">
+                <button type="button" onClick={onlineFormOpen ? () => setOnlineFormOpen(false) : openOnlineForm} className="btn-outline text-sm">
+                  <PenLine size={16} /> Remplir en ligne
+                </button>
+                <button type="button" onClick={downloadBlankConsent} className="btn-outline text-sm">
                   <Download size={16} /> Télécharger
                 </button>
-              )}
+              </div>
             </div>
           ))}
         </div>
 
         {onlineFormOpen && (
-          <form onSubmit={handleConsentSubmit} className="card-soft p-6 md:p-8 mt-8 space-y-6">
+          <form id="autorisation-parentale" onSubmit={handleConsentSubmit} className="card-soft p-6 md:p-8 mt-8 space-y-6 scroll-mt-24">
             <div>
               <p className="section-subtitle">16 - 17 ans</p>
               <h3 className="font-serif text-2xl text-stone-800 mt-2">Autorisation parentale</h3>

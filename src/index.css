@@ -12,6 +12,37 @@
   h1, h2, h3, h4 {
     @apply font-serif;
   }
+
+  main > section {
+    position: relative;
+    isolation: isolate;
+  }
+
+  html.scroll-reveal-ready main > section {
+    opacity: 0;
+    transform: translateY(32px) scale(0.985);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.scroll-reveal-ready main > section.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  main > section + section::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -3px;
+    left: 50%;
+    width: min(9rem, 30vw);
+    height: 6px;
+    border-radius: 9999px;
+    background: #e0a87e;
+    box-shadow: 0 2px 0 #fdf6f7, 0 5px 14px rgba(160, 69, 85, 0.24);
+    transform: translateX(-50%);
+    animation: sectionRelief 4s ease-in-out infinite;
+  }
 }
 
 @layer components {
@@ -29,5 +60,36 @@
   }
   .card-soft {
     @apply bg-white/70 backdrop-blur-sm rounded-xl shadow-soft border border-powder-200/60 transition-all duration-300;
+  }
+
+  @media (hover: hover) {
+    .card-soft:hover {
+      transform: translateY(-4px) perspective(700px) rotateX(1deg);
+      box-shadow: 0 12px 28px -8px rgba(160, 69, 85, 0.24);
+    }
+  }
+}
+
+@keyframes sectionRelief {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    box-shadow: 0 2px 0 #fdf6f7, 0 5px 14px rgba(160, 69, 85, 0.24);
+  }
+  50% {
+    transform: translateX(-50%) translateY(2px);
+    box-shadow: 0 2px 0 #fdf6f7, 0 8px 18px rgba(160, 69, 85, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-reveal-ready main > section,
+  html.scroll-reveal-ready main > section.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  main > section + section::before {
+    animation: none;
   }
 }
