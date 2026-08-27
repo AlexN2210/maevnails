@@ -11,6 +11,11 @@ export default function Hero() {
       <div className="absolute bottom-10 -right-10 w-96 h-96 rounded-full bg-rosegold-100/40 blur-3xl" />
 
       <div className="relative z-10 text-center px-6 max-w-3xl animate-fadeInUp">
+        <img
+          src="/logo%20vide.png"
+          alt="Maev'nails"
+          className="lg:hidden w-52 h-52 max-w-full mx-auto object-contain mb-5"
+        />
         <p className="text-rosegold-500 font-light text-sm tracking-[0.3em] uppercase mb-5">
           Prothésiste Ongulaire
         </p>

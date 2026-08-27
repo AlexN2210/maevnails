@@ -29,13 +29,13 @@ export default function Header() {
         scrolled ? 'bg-powder-50/90 backdrop-blur-md shadow-soft' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-36 md:h-40">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-16 lg:h-40">
         {/* Logo */}
         <a href="#accueil" className="flex items-center gap-2 group">
           <img
             src="/logo%20vide.png"
             alt="Maev'nails"
-            className="h-36 md:h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="hidden lg:block h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
