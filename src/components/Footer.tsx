@@ -11,7 +11,7 @@ export default function Footer() {
               <img
                 src="/logo%20vide.png"
                 alt="Maev'nails"
-                className="h-16 md:h-20 w-auto object-contain"
+                className="h-40 md:h-48 w-auto object-contain"
               />
             </div>
             <p className="text-sm font-light leading-relaxed text-stone-400">
