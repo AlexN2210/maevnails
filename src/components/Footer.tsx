@@ -8,12 +8,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-rosegold-300 to-rosegold-500 flex items-center justify-center">
-                <span className="font-serif text-white text-lg font-semibold">M</span>
-              </div>
-              <span className="font-serif text-xl text-white">
-                Maev<span className="text-rosegold-400">'</span>nails
-              </span>
+              <img
+                src="/logo%20vide.png"
+                alt="Maev'nails"
+                className="h-16 md:h-20 w-auto object-contain"
+              />
             </div>
             <p className="text-sm font-light leading-relaxed text-stone-400">
               Prothésiste ongulaire passionnée, dédiée à la beauté et au soin de vos mains.

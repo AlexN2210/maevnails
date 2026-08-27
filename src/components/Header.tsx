@@ -33,9 +33,9 @@ export default function Header() {
         {/* Logo */}
         <a href="#accueil" className="flex items-center gap-2 group">
           <img
-            src="/logo%20plein.jpg"
+            src="/logo%20vide.png"
             alt="Maev'nails"
-            className="h-12 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-14 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
