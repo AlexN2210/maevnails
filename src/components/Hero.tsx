@@ -14,7 +14,7 @@ export default function Hero() {
         <img
           src="/logo%20vide.png"
           alt="Maev'nails"
-          className="lg:hidden w-72 h-72 max-w-full mx-auto object-contain mb-5"
+          className="lg:hidden w-96 h-96 max-w-full mx-auto object-contain mb-5"
         />
         <p className="hidden lg:block text-rosegold-500 font-light text-sm tracking-[0.3em] uppercase mb-5">
           Prothésiste Ongulaire
