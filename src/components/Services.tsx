@@ -33,6 +33,7 @@ export default function Services() {
                 <div className="w-12 h-12 rounded-full bg-powder-100 flex items-center justify-center mb-5 group-hover:bg-rosegold-100 transition-colors duration-300">
                   <Icon size={24} className="text-rosegold-500" />
                 </div>
+                <p className="text-xs text-rosegold-600 font-light tracking-wide uppercase mb-2">{service.category}</p>
                 <h3 className="font-serif text-xl text-stone-800 mb-2">{service.name}</h3>
                 <p className="text-sm text-stone-500 font-light leading-relaxed mb-5">
                   {service.description}

@@ -15,13 +15,13 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
         <Services />
         <Gallery />
         <Pricing />
         <Booking />
         <Forms />
         <CallbackRequest />
+        <About />
       </main>
       <Footer />
     </div>

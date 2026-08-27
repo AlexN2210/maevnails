@@ -1,59 +1,28 @@
-import { Sparkles, Hand, Palette, Shield } from 'lucide-react';
-
-const specialties = [
-  { icon: Sparkles, label: 'Gel' },
-  { icon: Hand, label: 'Semi-permanent' },
-  { icon: Palette, label: 'Nail Art' },
-  { icon: Shield, label: 'Renfort' },
-];
-
 export default function About() {
   return (
-    <section id="presentation" className="py-20 md:py-28 bg-powder-50">
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Photo */}
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-premium border-4 border-white">
-              <img
-                src="https://images.pexels.com/photos/3997389/pexels-photo-3997389.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Maev, prothésiste ongulaire"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {/* Badge */}
-            <div className="absolute -bottom-5 -right-2 md:-right-5 bg-white rounded-full shadow-premium px-6 py-3 flex items-center gap-2">
-              <Sparkles size={18} className="text-rosegold-500" />
-              <span className="font-serif text-stone-800 text-sm">Art &amp; Précision</span>
-            </div>
-          </div>
-
-          {/* Text */}
-          <div>
-            <p className="section-subtitle">À propos</p>
-            <h2 className="section-title mt-2 mb-6">Votre prothésiste ongulaire</h2>
-            <p className="text-stone-600 font-light leading-relaxed mb-5">
-              Passionnée par l'art des ongles, Maev vous accueille dans un espace intime
-              et raffiné dédié à la beauté de vos mains. Chaque prestation est réalisée
-              avec minutie, dans le respect de l'hygiène et de vos envies.
+    <section id="presentation" className="py-16 md:py-20 bg-powder-50">
+      <div className="max-w-3xl mx-auto px-5 md:px-8">
+        <div className="card-soft p-7 md:p-10 text-center">
+          <p className="section-subtitle">À propos de moi</p>
+          <h2 className="section-title mt-2 mb-7">Bienvenue dans mon petit univers !</h2>
+          <div className="space-y-5 text-stone-600 font-light leading-relaxed text-left">
+            <p>
+              Moi, c’est Maeva, mais vous me connaissez peut-être sous le nom de <span className="text-rosegold-600">mæv</span> sur les réseaux. Je suis située à Sabres et je me lance avec passion dans l’univers de la prothésie ongulaire.
             </p>
-            <p className="text-stone-600 font-light leading-relaxed mb-8">
-              Du soin naturel à la pose la plus créative, vous repartez avec des ongles
-              qui vous ressemblent — élégants, durables et parfaitement finis.
+            <p>
+              Depuis toujours, j’aime tout ce qui touche aux ongles et à la beauté des mains. Aujourd’hui, j’ai choisi de faire de cette passion une activité qui me permet de prendre soin de vous et de vous offrir un joli moment rien qu’à vous.
             </p>
-
-            <div className="grid grid-cols-2 gap-4">
-              {specialties.map((s) => (
-                <div
-                  key={s.label}
-                  className="card-soft flex items-center gap-3 px-4 py-3 hover:shadow-premium hover:-translate-y-0.5"
-                >
-                  <s.icon size={20} className="text-rosegold-500" />
-                  <span className="text-sm font-light text-stone-700">{s.label}</span>
-                </div>
-              ))}
-            </div>
+            <p>
+              Je suis une personne douce, à l’écoute et très bavarde — alors préparez-vous à passer un petit moment cocooning, entre beauté, papotage et bonne humeur.
+            </p>
+            <p>
+              Étant nouvelle dans le domaine, je construis petit à petit mon expérience et mon univers, avec beaucoup de sérieux, de minutie et surtout de passion. Chaque rendez-vous est pour moi l’occasion d’apprendre, de progresser et de vous faire repartir avec des mains qui vous ressemblent.
+            </p>
+            <p>
+              Hâte de vous rencontrer et de partager avec vous cette belle aventure.
+            </p>
           </div>
+          <p className="font-serif text-xl text-rosegold-600 mt-7">— mæv</p>
         </div>
       </div>
     </section>
