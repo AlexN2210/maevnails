@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ChevronLeft, ChevronRight, Clock, Check, Loader2, CalendarCheck } from 'lucide-react';
-import { services, timeSlots } from '@/data';
+import { ChevronLeft, ChevronRight, Clock, Check, Loader2, CalendarCheck, Hand, Layers3, Sparkles, Wrench, ShieldCheck } from 'lucide-react';
+import { bookingServices, timeSlots } from '@/data';
 import { supabase } from '@/lib/supabase';
 
 const WEEKDAYS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
@@ -8,6 +8,8 @@ const MONTHS = [
   'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
   'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre',
 ];
+
+const serviceIcons = [Hand, Layers3, Sparkles, Wrench, ShieldCheck];
 
 function formatDate(date: Date): string {
   const y = date.getFullYear();
@@ -322,13 +324,33 @@ export default function Booking() {
                     <select
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-lg border border-powder-200 bg-white/60 font-light text-sm focus:outline-none focus:border-rosegold-300 focus:ring-1 focus:ring-rosegold-200 transition-all"
+                      className="hidden lg:block w-full px-4 py-2.5 rounded-lg border border-powder-200 bg-white/60 font-light text-sm focus:outline-none focus:border-rosegold-300 focus:ring-1 focus:ring-rosegold-200 transition-all"
                     >
                       <option value="">Choisir...</option>
-                      {services.map((s) => (
-                        <option key={s.id} value={s.name}>{s.name} — {s.price}</option>
+                      {bookingServices.map((item) => (
+                        <option key={item.id} value={item.name}>{item.name} — {item.price}</option>
                       ))}
                     </select>
+                    <div className="grid grid-cols-2 gap-2 lg:hidden">
+                      {bookingServices.map((item, index) => {
+                        const Icon = serviceIcons[index % serviceIcons.length];
+                        const selected = service === item.name;
+                        return (
+                          <button
+                            key={item.id}
+                            type="button"
+                            onClick={() => setService(item.name)}
+                            className={`flex items-center gap-2 rounded-lg border px-3 py-3 text-left transition-all ${selected
+                              ? 'border-rosegold-400 bg-rosegold-50 text-rosegold-700 shadow-soft'
+                              : 'border-powder-200 bg-white/60 text-stone-600 hover:border-rosegold-300'}
+                            `}
+                          >
+                            <Icon size={18} className="shrink-0 text-rosegold-500" />
+                            <span className="text-xs font-light leading-tight">{item.name}<span className="block text-rosegold-600 mt-0.5">{item.price}</span></span>
+                          </button>
+                        );
+                      })}
+                    </div>
                     {errors.service && <p className="text-xs text-red-400 mt-1">{errors.service}</p>}
                   </div>
                 </div>

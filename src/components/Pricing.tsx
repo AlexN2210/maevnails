@@ -1,4 +1,4 @@
-import { services } from '@/data';
+import { pricingCategories } from '@/data';
 
 export default function Pricing() {
   return (
@@ -12,35 +12,22 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="card-soft overflow-hidden">
-          <table className="w-full">
-            <thead>
-              <tr className="bg-powder-100">
-                <th className="text-left px-6 py-4 font-serif text-stone-700 text-base">Prestation</th>
-                <th className="text-center px-4 py-4 font-serif text-stone-700 text-base hidden sm:table-cell">Durée</th>
-                <th className="text-right px-6 py-4 font-serif text-stone-700 text-base">Prix</th>
-              </tr>
-            </thead>
-            <tbody>
-              {services.map((s, i) => (
-                <tr
-                  key={s.id}
-                  className={`border-t border-powder-100 transition-colors hover:bg-powder-50 ${
-                    i % 2 === 0 ? 'bg-white/40' : ''
-                  }`}
-                >
-                  <td className="px-6 py-4">
-                    <span className="font-serif text-stone-800">{s.name}</span>
-                    <p className="text-xs text-stone-400 font-light mt-0.5 sm:hidden">{s.duration}</p>
-                  </td>
-                  <td className="px-4 py-4 text-center text-stone-500 font-light text-sm hidden sm:table-cell">
-                    {s.duration}
-                  </td>
-                  <td className="px-6 py-4 text-right text-rosegold-600 font-medium">{s.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="space-y-8">
+          {pricingCategories.map((category) => (
+            <div key={category.name} className="card-soft overflow-hidden">
+              <h3 className="bg-powder-100 px-6 py-4 font-serif text-xl text-stone-700">{category.name}</h3>
+              <table className="w-full">
+                <tbody>
+                  {category.items.map((item, i) => (
+                    <tr key={item.name} className={`border-t border-powder-100 transition-colors hover:bg-powder-50 ${i % 2 === 0 ? 'bg-white/40' : ''}`}>
+                      <td className="px-6 py-4 font-serif text-stone-800">{item.name}</td>
+                      <td className="px-6 py-4 text-right text-rosegold-600 font-medium">{item.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
         </div>
       </div>
     </section>

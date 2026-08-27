@@ -1,4 +1,4 @@
-import { FileText, Download } from 'lucide-react';
+import { Banknote, Clock3, FileText, Download, UserRound, ShieldCheck } from 'lucide-react';
 
 const documents = [
   {
@@ -61,6 +61,17 @@ export default function Forms() {
               </button>
             </div>
           ))}
+        </div>
+
+        <div className="border-t border-powder-200 pt-10">
+          <h3 className="font-serif text-2xl text-stone-800 text-center mb-6">Informations importantes</h3>
+          <div className="grid sm:grid-cols-2 gap-4 text-sm text-stone-600 font-light">
+            <p className="flex items-start gap-3"><Banknote size={19} className="text-rosegold-500 shrink-0" /> Paiement uniquement en espèces.</p>
+            <p className="flex items-start gap-3"><Clock3 size={19} className="text-rosegold-500 shrink-0" /> Un retard de 15 minutes entraîne l’annulation du rendez-vous.</p>
+            <p className="flex items-start gap-3"><UserRound size={19} className="text-rosegold-500 shrink-0" /> Une seule personne accompagnante est autorisée par cliente.</p>
+            <p className="flex items-start gap-3"><ShieldCheck size={19} className="text-rosegold-500 shrink-0" /> Prestations réservées aux majeures. Les jeunes de 16 à 17 ans sont acceptées uniquement avec l’accord d’un représentant légal.</p>
+          </div>
+          <p className="text-center text-sm text-stone-500 font-light mt-5">Pour les mineures concernées, un formulaire d’autorisation parentale doit être rempli avant la prestation.</p>
         </div>
 
       </div>

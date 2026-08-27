@@ -6,6 +6,7 @@ import Gallery from '@/components/Gallery';
 import Pricing from '@/components/Pricing';
 import Booking from '@/components/Booking';
 import Forms from '@/components/Forms';
+import CallbackRequest from '@/components/CallbackRequest';
 import Footer from '@/components/Footer';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Pricing />
         <Booking />
         <Forms />
+        <CallbackRequest />
       </main>
       <Footer />
     </div>

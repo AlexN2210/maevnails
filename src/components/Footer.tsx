@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Phone, MapPin, Heart } from 'lucide-react';
+import { Heart, Instagram, MapPin, Music2 } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -19,32 +19,77 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Contact */}
+          {/* Appointment locations */}
           <div>
-            <h4 className="font-serif text-white text-lg mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm font-light">
-              <li className="flex items-center gap-2.5">
-                <Phone size={16} className="text-rosegold-400" />
-                <a href="tel:+33612345678" className="hover:text-rosegold-400 transition-colors">06 12 34 56 78</a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <MapPin size={16} className="text-rosegold-400" />
-                <span>12 Rue des Roses, 75001 Paris</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="font-serif text-white text-lg mb-4">Suivez-moi</h4>
-            <div className="flex gap-3">
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-stone-700 flex items-center justify-center hover:bg-rosegold-500 transition-colors duration-300">
-                <Instagram size={18} />
+            <h4 className="font-serif text-white text-lg mb-4">Lieux des rendez-vous</h4>
+            <p className="text-sm font-light leading-relaxed text-stone-400 mb-4">
+              Les rendez-vous ont lieu à Biscarrosse ou à Sabres, selon vos disponibilités.
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Biscarrosse%2C%20France"
+                target="_blank"
+                rel="noreferrer"
+                className="group"
+              >
+                <div className="h-20 rounded-lg overflow-hidden border border-stone-700 bg-stone-700 relative">
+                  <iframe
+                    title="Carte de Biscarrosse"
+                    src="https://www.google.com/maps?q=Biscarrosse%2C%20France&output=embed"
+                    loading="lazy"
+                    className="w-full h-full border-0 pointer-events-none opacity-70"
+                  />
+                  <MapPin size={20} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-rosegold-400 drop-shadow" />
+                </div>
+                <span className="block text-xs text-stone-300 mt-2 group-hover:text-rosegold-400 transition-colors">Biscarrosse</span>
               </a>
-              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-stone-700 flex items-center justify-center hover:bg-rosegold-500 transition-colors duration-300">
-                <Facebook size={18} />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Sabres%2C%20France"
+                target="_blank"
+                rel="noreferrer"
+                className="group"
+              >
+                <div className="h-20 rounded-lg overflow-hidden border border-stone-700 bg-stone-700 relative">
+                  <iframe
+                    title="Carte de Sabres"
+                    src="https://www.google.com/maps?q=Sabres%2C%20France&output=embed"
+                    loading="lazy"
+                    className="w-full h-full border-0 pointer-events-none opacity-70"
+                  />
+                  <MapPin size={20} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-rosegold-400 drop-shadow" />
+                </div>
+                <span className="block text-xs text-stone-300 mt-2 group-hover:text-rosegold-400 transition-colors">Sabres</span>
               </a>
             </div>
+          </div>
+
+          {/* Social links */}
+          <div>
+            <h4 className="font-serif text-white text-lg mb-4">Retrouvez-moi</h4>
+            <ul className="space-y-3 text-sm font-light">
+              <li className="flex items-center gap-2.5">
+                <Instagram size={17} className="text-rosegold-400" />
+                <a
+                  href="https://www.instagram.com/maev_nails40/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-rosegold-400 transition-colors"
+                >
+                  @maev_nails40
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Music2 size={17} className="text-rosegold-400" />
+                <a
+                  href="https://www.tiktok.com/@maevnails40"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-rosegold-400 transition-colors"
+                >
+                  @maevnails40
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 

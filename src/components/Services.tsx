@@ -1,4 +1,4 @@
-import { Sparkles, Hand, Palette, Brush, Shield, Wrench, Clock, Tag, type LucideIcon } from 'lucide-react';
+import { Sparkles, Hand, Palette, Brush, Shield, Wrench, Tag, type LucideIcon } from 'lucide-react';
 import { services } from '@/data';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -37,10 +37,7 @@ export default function Services() {
                 <p className="text-sm text-stone-500 font-light leading-relaxed mb-5">
                   {service.description}
                 </p>
-                <div className="flex items-center justify-between pt-4 border-t border-powder-200">
-                  <span className="flex items-center gap-1.5 text-xs text-stone-500 font-light">
-                    <Clock size={14} /> {service.duration}
-                  </span>
+                <div className="flex items-center justify-end pt-4 border-t border-powder-200">
                   <span className="flex items-center gap-1.5 text-rosegold-600 font-medium">
                     <Tag size={14} /> {service.price}
                   </span>
