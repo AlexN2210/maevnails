@@ -1,4 +1,4 @@
-import { FileText, Download, Plus, Lock } from 'lucide-react';
+import { FileText, Download } from 'lucide-react';
 
 const documents = [
   {
@@ -63,22 +63,6 @@ export default function Forms() {
           ))}
         </div>
 
-        {/* Admin placeholder */}
-        <div className="rounded-xl border border-dashed border-rosegold-200 bg-powder-50/50 p-6 text-center">
-          <div className="flex items-center justify-center gap-2 text-stone-400 mb-3">
-            <Lock size={16} />
-            <span className="text-xs font-light tracking-wide uppercase">Espace réservé à l'administratrice</span>
-          </div>
-          <button
-            disabled
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-200 text-stone-400 text-sm font-light cursor-not-allowed"
-          >
-            <Plus size={16} /> Ajouter un document
-          </button>
-          <p className="text-xs text-stone-400 font-light mt-3">
-            Cette section permettra à l'administratrice de gérer les documents téléchargeables.
-          </p>
-        </div>
       </div>
     </section>
   );
