@@ -38,6 +38,8 @@ export default function Booking() {
 
   // fetch booked slots
   useEffect(() => {
+    if (!supabase) return;
+
     const fetchBooked = async () => {
       const { data, error } = await supabase
         .from('appointments')
@@ -104,6 +106,11 @@ export default function Booking() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate() || !selectedDate || !selectedSlot) return;
+    if (!supabase) {
+      setErrors({ form: 'La réservation est momentanément indisponible.' });
+      return;
+    }
+
     setSubmitting(true);
     const { error } = await supabase.from('appointments').insert({
       name: name.trim(),
